@@ -1,0 +1,10 @@
+name: Workflow for Feature Branch
+on: 
+ push:
+   branches: [feature/**]
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check new feature quality
+        run : echo "start unit testing"
