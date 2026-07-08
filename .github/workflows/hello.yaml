@@ -13,5 +13,6 @@ jobs:
 
   Seccond-job:
     runs-on: windows-latest
+    needs: hello-job
     steps:
       - run: echo "This job is running on ${{ runner.os }}"
