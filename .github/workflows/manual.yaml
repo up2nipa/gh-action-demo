@@ -33,11 +33,14 @@ jobs:
           echo "status=success" >> $GITHUB_OUTPUT
         
   test:
+    needs: build
     runs-on:
       - ubuntu-latest
     steps:
       - name: UI Testing
         if: ${{inputs.run_ui_tests}}
-        run: echo "Run UI testing tools in ${{inputs.environment}} environment"
+        run: |
+          echo "The build status is ${{ needs.build.outputs.build_status }}
+          echo "Run UI testing tools in ${{inputs.environment}} environment"
 
         
